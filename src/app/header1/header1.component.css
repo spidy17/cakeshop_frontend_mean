@@ -1,0 +1,4 @@
+#navigation .navbar-nav li a,li{
+    float: right;
+    text-align: right;
+}

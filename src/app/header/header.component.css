@@ -1,0 +1,24 @@
+
+
+.dropdown-item{
+    border: 1px solid  brown;
+    border-radius: 5px;
+    
+}
+
+.dropdown-item :hover{
+    background-color: bisque;
+}
+
+#navigation .navbar-nav li a,li{
+    float: right;
+    text-align: right;
+}
+
+@media (max-width: 575.98px) { 
+    .dropdown-item{
+        border: none;
+    }
+ }
+
+ 

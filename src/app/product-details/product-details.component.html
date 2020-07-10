@@ -1,0 +1,93 @@
+<app-header1></app-header1>
+<body style="background-color: beige;">
+<div class="container">
+	
+    <hr>
+    
+        
+    <div class="card">
+        <div class="row">
+            <aside class="col-sm-5 border-right">
+    <article class="gallery-wrap"> 
+    <div class="img-big-wrap text-center" >
+      <div> <img src="http://localhost:3000/{{products.productImagePath}}" style="height: 450px; width: 400px; padding: 70px 20px 30px 40px;"></div>
+    </div> 
+    
+    </article> 
+            </aside>
+            <aside class="col-sm-7">
+    <article class="card-body p-5">
+        <h3 class="title mb-3">{{products.name}}</h3>
+    
+    <p class="price-detail-wrap"> 
+        <span class="price h3 text-warning"> 
+            <span class="currency"></span><span class="num">Rs. {{ products.price}}</span>
+        </span> 
+        
+    </p> 
+    <dl class="item-property">
+      <dt>Description</dt>
+      <dd><p> {{products.description}} </p></dd>
+    </dl>
+    <dl class="param param-feature">
+      <dt>Type</dt>
+      <dd><span *ngIf="products.veg"><img src="assets/veg.svg" style="height: 40px;"  alt="Veg"></span>
+        <span *ngIf="!products.veg"><img src="assets/non-veg.svg" style="height: 40px;" alt="Non-Veg"></span></dd>
+    </dl>  
+    
+    
+    <hr>
+        <div class="row">
+            <div class="col-sm-5">
+                <dl class="param param-inline">
+                  <dt>Quantity: </dt>
+                  <dd>
+                      <select #ingre_qty class="form-control form-control-sm" style="width:70px;">
+                          <option> 1 </option>
+                          <option> 2 </option>
+                          <option> 3 </option>
+                      </select>
+                  </dd>
+                </dl>  
+            </div>
+        
+        </div> 
+        <hr>
+    
+        <button (click)="addTocart()" class="btn btn-lg btn-outline-primary text-uppercase">Add to cart </button>
+    </article> 
+            </aside> 
+        </div> 
+    </div> 
+    
+    
+    </div>
+    
+    
+    
+    <br><br><br>
+    
+<div class="container mt-5">
+    <div class="row"><div class="col-6 col-lg-4 col-md-4 col-sm-4 font-weight-bolder">Similar Products</div></div>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let i of similarproducts">
+            <div class="card" style="margin-top: 10px;">
+                <img src="http://localhost:3000/{{i.productImagePath}}" style="width: 255px; height: 188px;" alt="product_img" class="card-img-top">
+                    <div class="card-body" style="text-align:center ;">
+          
+                        <a href="/product-detail/{{i._id}}">
+                            <h5>{{i.name }}</h5>
+                                <span *ngIf="i.veg"><img src="assets/veg.svg" style="height: 30px;"  alt="Veg"></span>
+                                <span *ngIf="!i.veg"><img src="assets/non-veg.svg" style="height: 30px;" alt="Non-Veg"></span>
+                            <h6> Price : {{i.price}} Rs.</h6>
+                        </a>
+                            <div>{{i.description|slice:0:20}}<span *ngIf="i.description.length>20">...</span></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+

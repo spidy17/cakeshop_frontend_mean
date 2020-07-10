@@ -1,0 +1,59 @@
+<app-header1></app-header1>
+<h1 class="text-center">Products Cart</h1>
+<body>
+
+
+
+<div class="shopping-cart">
+
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+
+  <div class="product" *ngFor="let i of cart; let m = index">
+    <div class="product-image">
+        <img class="media-object" src="http://localhost:3000/{{i.product_image}}" style="width: 72px; height: 72px;">
+    </div>
+    <div class="product-details">
+      <div class="product-title">{{i.product_name}}</div>
+     
+    </div>
+    <div class="product-price">{{i.product_price}}</div>
+    <div class="product-quantity">
+        {{i.product_count}}
+    </div>
+    <div class="product-removal">
+        <button type="button"  (click)="deleteCart(m)" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove"></span> Remove
+        </button>
+    </div>
+    <div class="product-line-price">{{i.product_count*i.product_price}}</div>
+  </div>
+
+  
+
+  <div class="totals">
+    <div class="totals-item">
+      <label>Subtotal</label>
+      <div class="totals-value" id="cart-subtotal">{{final_total}}</div>
+    </div>
+   
+    <div class="totals-item totals-item-total">
+      <label>Grand Total</label>
+      <div class="totals-value" id="cart-total">{{final_total}}</div>
+    </div>
+  </div>
+      
+  <button type="button" (click)="placeOrder2()" class="btn btn-success checkout">
+    Checkout <span class="glyphicon glyphicon-play"></span>
+</button>
+
+      
+</div>
+
+</body>

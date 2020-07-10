@@ -1,0 +1,39 @@
+    <app-header1></app-header1>
+   <body>
+<h2 class="text-center">My Orders</h2>
+
+<table class="table table-sm">
+    <thead style="background-color: lightgrey;">
+      <tr>
+        <th scope="col">Sr. No</th>
+        <th scope="col">Order Id</th>
+        <th scope="col">Variety of Product</th>
+        <th scope="col">Total Amount</th>
+        <th scope="col">DateTime</th>
+        <th scope="col">Status</th>
+     
+      </tr>
+    </thead>
+    <tbody *ngFor="let i of orders,let m=index">
+      <tr  *ngIf="i.user._id==user_id">
+     
+        <th scope="row">{{m}}</th>
+        <td>{{i._id}}</td>
+        <td>{{i.products.length}}</td>
+        <td>Rs. {{ i.amount}}</td>
+        <td>{{i.createdAt|date:"dd-MM-yyyy hh:mm:ss a"}}</td>
+        <td>{{i.status}}</td>
+    
+      </tr>
+    
+      
+    </tbody>
+  </table>
+
+
+
+
+  
+
+
+</body>
